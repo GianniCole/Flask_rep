@@ -7,7 +7,7 @@ all_posts=[
 	{
 		#structures, dictionary
 		'title': 'Post 1',
-		'content': 'This is the content of post 1. Lalalalalallalalalalla.'
+		'content': 'This is the content of post 1. Lalalalalallalalalalla.',
 		'author': 'Gianni'
 	},
 {
