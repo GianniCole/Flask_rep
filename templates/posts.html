@@ -5,9 +5,20 @@
 {% endblock%}
 
 
+
+
 {% block body%}
 <h4>All posts</h4>
-
+<hr>
+   <h2>Create new Blog Post:</h2> 
+    <form action='/posts' method='POST'>
+        Title: <input type='text' name='title' id='title'>
+        <br>
+        Post: <input type='text' name='content' id='content'>
+        <br>
+         <input type='submit' value='Post'>
+    </form>
+</hr>
     {% for post in posts %}
         <h5>{{ post.title}}</h5>
         {% if post.author%}
