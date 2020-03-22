@@ -118,5 +118,7 @@ BlogPost.query.get(2).author='Gigi'
 e appena effettuato il commit 
 db.session.commit() a
 
+
+[riprendi da 1.53.16]
 #####################
 learn about javascript!!!!!!
