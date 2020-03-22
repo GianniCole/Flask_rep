@@ -103,3 +103,20 @@ datetime.datetime(2020, 3, 21, 12, 54, 47, 982978)
 
 
 Quando si utilizza SQLAlchemy bisogna non tenere alcun altro processo che utilizza il db, altrimenti SQLAlchemy lo setta a locked!
+
+
+si possono utilizzare delle direttivr del tipo
+BlogPost.query.get(2) ..
+db.session.delete(BlogPost.query.get(2))
+una volta che un post è stato eliminato dal db, bisogna eseguire db.session.commit()
+db.session.commit()
+
+
+da terminale si può anche effettuare una modifica ad uno specifico row in tabella.
+Ad esempio se si volesse modificare il nome dell'autore del secondo post.
+BlogPost.query.get(2).author='Gigi'
+e appena effettuato il commit 
+db.session.commit() a
+
+#####################
+learn about javascript!!!!!!

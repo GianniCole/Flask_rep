@@ -8,25 +8,30 @@
 
 
 {% block body%}
-<h4>All posts</h4>
+<h1>All posts</h1>
 <hr>
    <h2>Create new Blog Post:</h2> 
     <form action='/posts' method='POST'>
         Title: <input type='text' name='title' id='title'>
+        <br>
+        Author: <input type='text' name='author' id='author'>
         <br>
         Post: <input type='text' name='content' id='content'>
         <br>
          <input type='submit' value='Post'>
     </form>
 </hr>
-    {% for post in posts %}
-        <h5>{{ post.title}}</h5>
+</hr>
+{% for post in posts %}
+        <h2>{{ post.title}}</h2>
         {% if post.author%}
-            <h6>By {{ post.author}}</h6>
+            <h3>By {{ post.author}}</h3>
         {% else%} 
-            <h6>By: N/A</h6>
+            <h3>By: N/A</h3>
         {%endif%}
         <p>{{ post.content }}</p>
-
+        <a href='/posts/delete/{{post.id}}'>delete</a>
+        <a href='/posts/edit/{{post.id}}'>edit</a>
+    </hr>
     {% endfor %}
 {% endblock%}
