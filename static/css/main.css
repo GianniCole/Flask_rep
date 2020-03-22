@@ -2,4 +2,5 @@ body{
     font-family: Helvetica;
     font-style: oblique;
     font-size: larger;
+    grid-auto-flow: column;
 }
