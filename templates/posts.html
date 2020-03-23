@@ -10,28 +10,35 @@
 {% block body%}
 <h1>All posts</h1>
 <hr>
-   <h2>Create new Blog Post:</h2> 
-    <form action='/posts' method='POST'>
-        Title: <input type='text' name='title' id='title'>
-        <br>
-        Author: <input type='text' name='author' id='author'>
-        <br>
-        Post: <input type='text' name='content' id='content'>
-        <br>
-         <input type='submit' value='Post'>
-    </form>
-</hr>
-</hr>
+<h2>Create new Blog Post:</h2>
+<form action='/posts' method='POST'>
+
+    Titolo: <input class="form-control" type='text' name='title' id='title' placeholder="Inserisci titolo">
+    <br>
+    Autore: <input type='text' name='author' id='author'placeholder="Inserisci Autore">
+    <br>
+    <!--
+    Post: 
+    <input class="form-control" type='text' name='content' id='content' placeholder="Inserisci il contenuto del post">-->
+    <div class="form-group">
+        <label for="content">Post:</label>
+        <textarea class="form-control" rows="4" name="content" id="content" placeholder="Inserisci il contenuto desiderato"></textarea>
+    </div> 
+    <br>
+    <input  class="btn btn-info" type='submit' value='Post'>
+</form>
+
 {% for post in posts %}
-        <h2>{{ post.title}}</h2>
-        {% if post.author%}
-            <h3>By {{ post.author}}</h3>
-        {% else%} 
-            <h3>By: N/A</h3>
-        {%endif%}
-        <p>{{ post.content }}</p>
-        <a href='/posts/delete/{{post.id}}'>delete</a>
-        <a href='/posts/edit/{{post.id}}'>edit</a>
-    </hr>
-    {% endfor %}
+<hr align=”left” size=”2″ width=”300″ color=green noshade>
+<h2>{{ post.title}}</h2>
+{% if post.author%}
+<small>Scritto da {{ post.author}} il {{post.date_posted.strftime("%x")}}</small>
+{% else%}
+<small>Non è conosciuto il nome dell'autore, ma è stato scritto il {{post.date_posted.strftime("%x")}}</small>
+{%endif%}
+<p>{{ post.content }}</p>
+<a class="btn btn-danger" href='/posts/delete/{{post.id}}'>delete</a>
+<a class="btn btn-primary" href='/posts/edit/{{post.id}}'>edit</a>
+</hr>
+{% endfor %}
 {% endblock%}

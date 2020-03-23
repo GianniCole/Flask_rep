@@ -73,6 +73,8 @@ def edit(id):
 		post.title=request.form['title']
 		post.author=request.form['author']
 		post.content=request.form['content']
+		post.id=id
+		post.datetime=request.form['date_posted']
 		db.session.commit()
 		return redirect('/posts')
 	else:

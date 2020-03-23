@@ -87,6 +87,7 @@ Blog post 3
 'N/A'
 >>> BlogPost.query.all()[2].date_posted
 datetime.datetime(2020, 3, 21, 12, 54, 47, 982978)
+vedi [https://www.w3schools.com/python/python_datetime.asp]
 >>> 
 
 >>> from app import db, BlogPost ##<----
@@ -119,6 +120,7 @@ e appena effettuato il commit
 db.session.commit() a
 
 
-[riprendi da 1.53.16]
 #####################
 learn about javascript!!!!!!
+
+

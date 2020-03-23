@@ -13,9 +13,23 @@ possiamo utilizzare jinjia per estendere base.html
 {% block body%}
 <h1>Home Page</h1>
 <h2> index con jinjia</h2>
-<p>Questa è l'home-page !</p>
-<br>
-<br>
-<p>Grazie per essere passati su questa pagina</p>
+
+<main role="main">
+    <div class="jumbotron">
+        <div class="col-sm-8 mx-auto">
+            <h1>Benvenuti</h1>
+            <p>Benvenuti nel mio blog.</p>
+            <p>Questa è l'home-page !</p>
+            <p>Questa è una semplice pagna di esercitazione per poter imparare flask</p>
+                <p>Grazie per essere passati su questa pagina</p>
+
+              <p>  Per maggiore informazione <code>. Qua c'è 'code'</code>. 
+                Altrimenti visita il sito e mparat tutt cos <a href="https://google.it"  target="_blank"> Google</a> oppure <a href="https://www.ansa.it"  target="_blank"> ansa</a>.</p>
+            <a class="btn btn-primary" href="/posts" role="button">Vedi tutti i nostri Post &raquo;</a> 
+            </p>
+        </div>
+    </div>
+</main>
+
 
 {% endblock%}
