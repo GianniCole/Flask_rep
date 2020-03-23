@@ -73,12 +73,26 @@ def edit(id):
 		post.title=request.form['title']
 		post.author=request.form['author']
 		post.content=request.form['content']
-		post.id=id
-		post.datetime=request.form['date_posted']
 		db.session.commit()
 		return redirect('/posts')
 	else:
 		return render_template('edit.html', post=post)
+
+@app.route('/posts/new', methods=['GET', 'POST'])
+def new_post():
+	#read from database
+	if request.method=='POST':
+		#insert dati from form into post.db
+		post_title=request.form['title']
+		post_content=request.form['content']
+		post_author=request.form['author']
+		new_post =BlogPost(title=post_title, content=post_content, author=post_author)
+		db.session.add(new_post)
+		db.session.commit()
+		return redirect('/posts')
+	else:
+		return render_template('new_post.html')
+
 
 
 @app.route('/home/users/<string:name>/posts/<int:id>')
