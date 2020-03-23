@@ -5,11 +5,24 @@
 {% endblock%}
 
 
-{% block body%}
-<h4>All posts</h4>
 
-    {% for post in posts %}
-        <h5>{{ post.title}}</h5>
-        <p>{{ post.content }}</p>
-    {% endfor %}
+
+{% block body%}
+<div>
+    <h1>Tutti i nostri posts</h1>
+    <a class="bt btn-success float-right" href="/posts/new"> Nuovo Post </a>
+</div>
+{% for post in posts %}
+<hr align=”left” size=”2″ width=”300″ color=green noshade>
+<h2>{{ post.title}}</h2>
+{% if post.author%}
+<small>Scritto da {{ post.author}} il {{post.date_posted.strftime("%x")}}</small>
+{% else%}
+<small>Non è conosciuto il nome dell'autore, ma è stato scritto il {{post.date_posted.strftime("%x")}}</small>
+{%endif%}
+<p>{{ post.content }}</p>
+<a class="btn btn-danger" href='/posts/delete/{{post.id}}'>Cancella</a>
+<a class="btn btn-primary" href='/posts/edit/{{post.id}}'>Modifica</a>
+</hr>
+{% endfor %}
 {% endblock%}
