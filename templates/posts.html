@@ -39,8 +39,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form action='/posts/edit/{{post.id}}' method='POST'>
+            <form action='/posts/edit/{{post.id}}' method='POST'>
+                <div class="modal-body">
                     Title: <input class="form-control" type='text' name='title' id='title' value="{{post.title}}">
                     <br>
                     Author: <input type='text' name='author' id='author' value="{{ post.author}}">
@@ -51,17 +51,17 @@
                         <textarea class="form-control" rows="4" name="content" id="content">{{post.content}}</textarea>
                         <!--il tag textarea non ha un campo value, ma il contenuto deve essere inserito tra i tag  <textarea> -->
                     </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <input class="btn btn-success" type='submit' value='Salva'>
-                </form>
-                <!--
-                    
-  -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+                </div>
+            </form>
+
+
         </div>
     </div>
+</div>
 </div>
 
 </hr>
