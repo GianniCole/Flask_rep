@@ -1,6 +1,8 @@
 {%extends 'base.html' %}
 
 {% block head%}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <title>Novo Post </title>
 {% endblock%}
 
@@ -9,27 +11,22 @@
 <hr>
 <h2>Crea un post:</h2>
 <form action='/posts' method='POST'>
-
     Titolo: <input class="form-control" type='text' name='title' id='title' placeholder="Inserisci titolo">
     <br>
-    Autore: <input type='text' name='author' id='author'placeholder="Inserisci Autore">
+    Autore: <input type='text' name='author' id='author' placeholder="Inserisci Autore">
     <br>
     <!--
     Post: 
     <input class="form-control" type='text' name='content' id='content' placeholder="Inserisci il contenuto del post">-->
     <div class="form-group">
         <label for="content">Post:</label>
-        <textarea class="form-control" rows="4" name="content" id="content" placeholder="Inserisci il contenuto desiderato"></textarea>
-    </div> 
+        <textarea class="form-control" rows="4" name="content" id="content"
+            placeholder="Inserisci il contenuto desiderato"></textarea>
+    </div>
     <br>
-    <input  class="btn btn-info" type='submit' value='Post'>
+    <input class="btn btn-info" type='submit' value='Post'>
 </form>
 <br>
 </hr>
-</body>
-
-</html>
-
-
 
 {% endblock%}

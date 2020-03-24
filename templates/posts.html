@@ -1,6 +1,8 @@
 {%extends 'base.html' %}
 
 {% block head%}
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>Posts </title>
 {% endblock%}
 
@@ -11,7 +13,47 @@
 <div>
     <h1>Tutti i nostri posts</h1>
     <a class="bt btn-success float-right" href="/posts/new"> Nuovo Post </a>
+    <!--NUOVO POST MODAL-->
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newModalPost"<i class="fa fa-plus"></i>>
+    Nuovo post modal
+</button>
+<!-- Modal -->
+<div class="modal fade" id="newModalPost" tabindex="-1" role="dialog" aria-labelledby="newPostLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="newPostLabel">Crea un nuovo post</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action='/posts' method='POST'>
+
+                <div class="modal-body">
+                    Titolo: <input class="form-control" type='text' name='title' id='title'
+                        placeholder="Inserisci titolo">
+                    <br>
+                    Autore: <input type='text' name='author' id='author' placeholder="Inserisci Autore">
+                    <br>
+                    <div class="form-group">
+                        <label for="content">Post:</label>
+                        <textarea class="form-control" rows="6" name="content" id="content" placeholder="Inserisci il contenuto desiderato"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Chiudi</button>
+                    <input class="btn btn-success" type='submit' value='Crea Post'>
+                    </div>
+            </form>
+        </div>
+    </div>
 </div>
+
+    <br>
+</div>
+<hr>
 {% for post in posts %}
 <hr align=”left” size=”2″ width=”300″ color=green noshade>
 <h2>{{ post.title}}</h2>
@@ -24,12 +66,12 @@
 <a class="btn btn-danger" href='/posts/delete/{{post.id}}'>Cancella</a>
 <a class="btn btn-primary" href='/posts/edit/{{post.id}}'>Modifica</a>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-    Launch demo modal
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modalEdit">
+    Modifica post modal
 </button>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!-- id = modalEdit -->
+<div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -61,7 +103,6 @@
 
         </div>
     </div>
-</div>
 </div>
 
 </hr>
